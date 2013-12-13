@@ -90,7 +90,7 @@ around BUILDARGS => sub {
   return {} if @_ == 1 and ! defined $_[0];
 
   if (@_ == 1 and (!ref $_[0]) and defined $_[0] and length $_[0]) {
-    return { message => $_[0] };
+    return $self->$orig({ message => $_[0] });
   }
 
   return $self->$orig(@_);
